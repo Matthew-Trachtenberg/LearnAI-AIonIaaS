@@ -38,12 +38,12 @@ For experimentation and model management, we'll use the Microsoft Azure platform
 
 <p style="border-bottom: 3px solid lightgrey;"></p>
 
-### Lab 0.1  - Set up the Azure Data Science Virtual Machine
+### Lab 0.1  - Set up the Azure Deep Learning Virtual Machine
 
 <img src="notebooks/assets/checkmark.jpg" style="float:right;vertical-align:text-top">
 
 Instructions:
-1. [Open this page](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/provision-deep-learning-dsvm) and perform the steps to set up a **Linux** DSVM, with a **Password** rather than an SSH set of Keys.
+1. [Open this page](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/provision-deep-learning-dsvm) and perform the steps to set up a **Linux** Deep Learning DSVM, with a **Password**.
 2. Follow the instructions for that section, choosing **NC6 Standard** as the size of the DSVM
 3. Complete the creation of the DSVM, and note the name, connection information and password for your system.
 
@@ -81,6 +81,19 @@ Finally, let's update the system:
 
 `sudo apt-get upgrade`
 
+Next, you'll want to enable Docker to be configured for use by non-root users. You can learn more about that process here: https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/deployment-setup-configuration
+
+Run the following commands to set that up:
+`sudo -i`
+
+`pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file`
+
+`exit`
+
+`sudo /opt/microsoft/azureml/initial_setup.sh`
+
+Now log out of the DSVM and login via SSH again.
+
 #### Lab verification
 <p><img style="float: left; margin: 0px 15px 15px 0px;" src="./assets/checkbox.png">Commands complete successfully.</p> 
  
@@ -102,7 +115,7 @@ Instructions:
 
 3. Now clone the course with the following command:
 
-`git clone https://github.com/Azure/LearnAI-AIonIaaS`
+`git clone https://github.com/Azure/LearnAI-AIonIaaS /gpuclass`
 
 4. And link to it with the following command:
 
